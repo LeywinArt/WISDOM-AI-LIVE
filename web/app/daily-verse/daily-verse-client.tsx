@@ -13,6 +13,8 @@ export default function DailyVerseClient({ initialData }: { initialData: DailyVe
   const [error, setError] = useState<string | null>(initialData ? null : 'Failed to load daily verse')
   const [copied, setCopied] = useState(false)
 
+  const canShare = typeof navigator !== "undefined" && typeof (navigator as any).share === "function"
+
   const onSave = async () => {
     if (!data || (data as any).is_saved) return
     try {
@@ -97,7 +99,7 @@ export default function DailyVerseClient({ initialData }: { initialData: DailyVe
             <div className="mb-10 text-center">
               <div className="inline-flex items-center gap-2 rounded-full border border-orange-400/30 bg-orange-400/10 px-4 py-2 mb-6 backdrop-blur-sm">
                 <Sunrise className="h-4 w-4 text-orange-400 animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-widest text-orange-200">Today's Inspiration</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-orange-200">Today’s Inspiration</span>
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 bg-gradient-to-r from-white via-orange-100 to-pink-100 bg-clip-text text-transparent leading-tight">
@@ -245,7 +247,7 @@ export default function DailyVerseClient({ initialData }: { initialData: DailyVe
                             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-white/90 backdrop-blur hover:bg-white/10 hover:border-white/30 transition-all hover:scale-105"
                             aria-label="Share this verse"
                           >
-                            {copied ? <Check className="h-4 w-4" /> : navigator.share ? <Share2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                            {copied ? <Check className="h-4 w-4" /> : canShare ? <Share2 className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                             {copied ? 'Copied!' : 'Share'}
                           </button>
                         </div>

@@ -24,3 +24,5 @@ web/out/
 web/.turbo/
 web/.cache/
 web/.vercel/
+hf_wisdom_ai_lora/
+hf_wisdom_ai_space/

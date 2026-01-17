@@ -99,11 +99,11 @@ export default function DashboardPage() {
               />
             </div>
 
-            {/* Today's Verse Preview */}
+            {/* Today’s Verse Preview */}
             {stats?.todayVerse && (
               <div className="mb-10">
                 <div className="mb-4 flex items-center justify-between">
-                  <h2 className="text-2xl font-bold text-white">Today's Verse</h2>
+                  <h2 className="text-2xl font-bold text-white">Today’s Verse</h2>
                   <Link
                     href="/daily-verse"
                     className="flex items-center gap-2 text-sm text-orange-400 transition-colors hover:text-orange-300"
@@ -119,7 +119,7 @@ export default function DashboardPage() {
                     </span>
                   </div>
                   <p className="mb-4 text-xl italic leading-relaxed text-white/90 sm:text-2xl">
-                    "{stats.todayVerse.text?.slice(0, 200) || 'Loading verse...'}..."
+                    &ldquo;{stats.todayVerse.text?.slice(0, 200) || "Loading verse..."}...&rdquo;
                   </p>
                   <p className="text-sm text-white/50">— {stats.todayVerse.source || 'Sacred Text'}</p>
                 </div>
